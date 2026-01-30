@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://djhvpaimgjr50"]
+
+[ext_resource type="SpriteFrames" uid="uid://brav5orqgvm83" path="res://Entities/Player/player_spriteframes.tres" id="1_e5kic"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ww0jn"]
+radius = 9.0
+
+[node name="Player" type="CharacterBody2D" unique_id=299891182]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=240328214]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ww0jn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953751037]
+sprite_frames = ExtResource("1_e5kic")
