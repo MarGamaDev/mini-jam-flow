@@ -4,3 +4,15 @@
 
 [resource]
 shader = ExtResource("1_qb3o5")
+shader_parameter/time_area_coords = Vector2(160, 90)
+shader_parameter/time_area_radius = 50.0
+shader_parameter/base_edge_rotate_speed = 3.5
+shader_parameter/base_edge_frequency = 20.0
+shader_parameter/base_edge_wave_intensity = 0.5
+shader_parameter/outer_edge_rotate_speed = 2.0
+shader_parameter/outer_edge_frequency = 30.0
+shader_parameter/outer_edge_wave_intensity = 1.0
+shader_parameter/inner_edge_rotate_speed = -6.0
+shader_parameter/inner_edge_frequency = 40.0
+shader_parameter/inner_edge_wave_intensity = 1.0
+shader_parameter/inner_edge_min_width = 1.0
