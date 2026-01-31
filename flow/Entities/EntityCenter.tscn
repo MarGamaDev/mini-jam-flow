@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cq7s6m8ofblrc"]
+
+[ext_resource type="Script" uid="uid://u1boyhcmgqiu" path="res://Entities/EntityCenter.gd" id="1_p2hh7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgqnr"]
+radius = 2.0
+
+[node name="Entity Center" type="Area2D" unique_id=697129407 groups=["Entity"]]
+script = ExtResource("1_p2hh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=982022433]
+shape = SubResource("CircleShape2D_jgqnr")
+debug_color = Color(0.6563213, 0.5170071, 0, 0.41960785)

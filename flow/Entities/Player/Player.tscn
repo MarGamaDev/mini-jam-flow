@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://djhvpaimgjr50"]
 
 [ext_resource type="SpriteFrames" uid="uid://brav5orqgvm83" path="res://Entities/Player/player_spriteframes.tres" id="1_e5kic"]
+[ext_resource type="Script" uid="uid://bdp0karo34s8t" path="res://Entities/Player/Player.gd" id="1_ww0jn"]
+[ext_resource type="PackedScene" uid="uid://cq7s6m8ofblrc" path="res://Entities/EntityCenter.tscn" id="3_vweq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ww0jn"]
 radius = 9.0
 
 [node name="Player" type="CharacterBody2D" unique_id=299891182]
+motion_mode = 1
+script = ExtResource("1_ww0jn")
+move_speed = 1000.0
+orb_minimum_distance = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=240328214]
-position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_ww0jn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953751037 groups=["Entity"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953751037]
+position = Vector2(0, -1)
 sprite_frames = ExtResource("1_e5kic")
+animation = &"Idle"
+
+[node name="Entity Center" parent="." unique_id=697129407 instance=ExtResource("3_vweq0")]
+
+[connection signal="on_update_timezone" from="Entity Center" to="." method="update_timezone"]
