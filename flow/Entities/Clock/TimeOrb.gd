@@ -26,9 +26,7 @@ func _physics_process(delta: float) -> void:
 		drag_offset = global_position - mouse_position;
 
 func _on_mouse_entered() -> void:
-	print("enter")
 	mouse_inside = true;
 
 func _on_mouse_exited() -> void:
-	print("exit")
 	mouse_inside = false;
