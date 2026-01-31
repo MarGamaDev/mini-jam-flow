@@ -11,5 +11,5 @@ radius = 9.0
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_ww0jn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953751037]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953751037 groups=["Entity"]]
 sprite_frames = ExtResource("1_e5kic")

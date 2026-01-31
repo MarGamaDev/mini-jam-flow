@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://kep6cwks8sd2"]
+
+[ext_resource type="SpriteFrames" uid="uid://bln704xavp1uk" path="res://Entities/Clock/clock_spriteframes.tres" id="1_sr4yt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7usdx"]
+radius = 8.0
+
+[node name="Time Orb" type="AnimatableBody2D" unique_id=1427376544 groups=["Entity", "Grabable"]]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856880667 groups=["Entity", "Grabable"]]
+shape = SubResource("CircleShape2D_7usdx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=563074674 groups=["Entity", "Grabable"]]
+sprite_frames = ExtResource("1_sr4yt")

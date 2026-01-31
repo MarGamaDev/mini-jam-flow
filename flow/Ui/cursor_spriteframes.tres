@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cy0ak7pajeok8"]
+
+[ext_resource type="Texture2D" uid="uid://d0ygdyj25s3tj" path="res://Ui/Cursor.png" id="1_dsr4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co6dd"]
+atlas = ExtResource("1_dsr4h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvxf3"]
+atlas = ExtResource("1_dsr4h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvsqp"]
+atlas = ExtResource("1_dsr4h")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co6dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvxf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvsqp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]

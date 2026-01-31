@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dtuis7d44lwuj"]
+
+[ext_resource type="SpriteFrames" uid="uid://cy0ak7pajeok8" path="res://Ui/cursor_spriteframes.tres" id="1_denxn"]
+[ext_resource type="Script" uid="uid://b6o433l5e5ygr" path="res://Ui/Cursor.gd" id="2_1nrms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nrms"]
+size = Vector2(9, 6)
+
+[node name="Cursor" type="AnimatedSprite2D" unique_id=1273649474]
+z_index = 1000
+sprite_frames = ExtResource("1_denxn")
+script = ExtResource("2_1nrms")
+
+[node name="CollisionShape2D" type="Area2D" parent="." unique_id=1695269974]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D" unique_id=638558967]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_1nrms")
+
+[connection signal="body_entered" from="CollisionShape2D" to="." method="_on_collision_shape_2d_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D" to="." method="_on_collision_shape_2d_body_exited"]
