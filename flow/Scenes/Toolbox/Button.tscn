@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://eadlby0q8p2p"]
+
+[ext_resource type="Texture2D" uid="uid://b7yni10tidhu1" path="res://Objects/Button/button.png" id="1_0k75f"]
+[ext_resource type="Script" uid="uid://csi3yjsom4e44" path="res://Objects/Button/Button.gd" id="2_8e0r1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e0r1"]
+atlas = ExtResource("1_0k75f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7828r"]
+atlas = ExtResource("1_0k75f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_up1l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e0r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7828r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8e0r1"]
+radius = 7.0
+
+[node name="Button" type="AnimatedSprite2D" unique_id=1054717585]
+sprite_frames = SubResource("SpriteFrames_up1l1")
+script = ExtResource("2_8e0r1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=95469078]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=803131647]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_8e0r1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

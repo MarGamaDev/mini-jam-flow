@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b57om76gog2qb" path="res://Scenes/Level.gd" id="1_70df5"]
 [ext_resource type="PackedScene" uid="uid://dtuis7d44lwuj" path="res://Ui/Cursor.tscn" id="2_ejprb"]
-[ext_resource type="PackedScene" uid="uid://kep6cwks8sd2" path="res://Entities/Clock/TimeOrb.tscn" id="3_au75x"]
+[ext_resource type="PackedScene" uid="uid://kep6cwks8sd2" path="res://Scenes/Toolbox/TimeOrb.tscn" id="3_au75x"]
 [ext_resource type="Material" uid="uid://yjrxvhfw04t4" path="res://Shaders/time_shader_material.tres" id="4_62f1r"]
-[ext_resource type="PackedScene" uid="uid://djhvpaimgjr50" path="res://Entities/Player/Player.tscn" id="5_1je60"]
+[ext_resource type="PackedScene" uid="uid://djhvpaimgjr50" path="res://Scenes/Toolbox/Player.tscn" id="5_1je60"]
 [ext_resource type="TileSet" uid="uid://cdiliupa5gs5s" path="res://Terrain/floor_tileset.tres" id="6_ycmr1"]
 [ext_resource type="TileSet" uid="uid://8r17r5adr3fk" path="res://Terrain/wall_tileset.tres" id="7_2jwna"]
 [ext_resource type="TileSet" uid="uid://crvx6jpody7f2" path="res://Terrain/soup_tileset.tres" id="8_sgc6j"]
-[ext_resource type="PackedScene" uid="uid://cusf1v47muv3b" path="res://Objects/Rune/End_Rune.tscn" id="9_xx40l"]
+[ext_resource type="PackedScene" uid="uid://cusf1v47muv3b" path="res://Scenes/Toolbox/End_Rune.tscn" id="9_xx40l"]
 
 [node name="Level 1" type="Node2D" unique_id=637504320]
 y_sort_enabled = true

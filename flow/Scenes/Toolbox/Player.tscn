@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://djhvpaimgjr50"]
+
+[ext_resource type="Script" uid="uid://bdp0karo34s8t" path="res://Entities/Player/Player.gd" id="1_kh0fx"]
+[ext_resource type="SpriteFrames" uid="uid://brav5orqgvm83" path="res://Entities/Player/player_spriteframes.tres" id="2_b2jkx"]
+[ext_resource type="PackedScene" uid="uid://cq7s6m8ofblrc" path="res://Entities/EntityCenter.tscn" id="3_lsdgy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ww0jn"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D" unique_id=299891182 groups=["Player"]]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_kh0fx")
+move_speed = 25.0
+orb_minimum_distance = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=240328214 groups=["Player"]]
+shape = SubResource("CircleShape2D_ww0jn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953751037 groups=["Player"]]
+position = Vector2(-1, -3)
+sprite_frames = ExtResource("2_b2jkx")
+animation = &"Idle"
+
+[node name="Entity Center" parent="." unique_id=697129407 groups=["Player"] instance=ExtResource("3_lsdgy")]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1226171810 groups=["Player"]]
+path_desired_distance = 5.0
+target_desired_distance = 20.0
+navigation_layers = 16
+avoidance_enabled = true
+avoidance_layers = 32
+avoidance_mask = 32
+
+[connection signal="on_update_timezone" from="Entity Center" to="." method="update_timezone"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
