@@ -1,4 +1,4 @@
-class_name GameManager
+class_name Level
 extends Node2D
 
 const TIME_SHADER_MATERIAL = preload("uid://yjrxvhfw04t4")
@@ -15,6 +15,8 @@ const SOUP_TILE = preload("uid://b72oeph4tcfxj")
 @export var time_area_radius: float = 50
 
 var last_delta: float = 0
+
+signal game_end
 
 func _ready() -> void:
 	TIME_SHADER_MATERIAL.set_shader_parameter("time_area_radius", time_area_radius)
@@ -67,4 +69,4 @@ func _on_end_rune_orb_present() -> void:
 		exit_transition.color.a += last_delta / 0.5
 		await get_tree().process_frame
 	
-	print("guh")
+	game_end.emit()
