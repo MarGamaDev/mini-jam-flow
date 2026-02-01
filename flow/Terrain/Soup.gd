@@ -10,7 +10,6 @@ func Initialize(index: int) -> void:
 	speed_scale = rand.randf_range(0.8, 1.2);
 
 func _on_entity_center_on_update_timezone(enabled: bool) -> void:
-	print("me")
 	if enabled:
 		play(animation_index)
 	else:
