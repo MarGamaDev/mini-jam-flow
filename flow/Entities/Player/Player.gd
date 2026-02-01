@@ -13,7 +13,7 @@ func initialize(orb: TimeOrb):
 	time_orb = orb
 
 func _process(delta: float) -> void:
-	pass
+	animated_sprite_2d.flip_h = velocity.dot(Vector2.RIGHT) < 0
 
 func _physics_process(delta: float) -> void:
 	if !is_in_time:

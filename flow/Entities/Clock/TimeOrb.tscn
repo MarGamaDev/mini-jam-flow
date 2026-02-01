@@ -8,18 +8,20 @@
 radius = 8.0
 
 [node name="Time Orb" type="CharacterBody2D" unique_id=1139669249 groups=["Grabable"]]
+collision_layer = 130
+collision_mask = 130
 motion_mode = 1
 script = ExtResource("1_7usdx")
 follow_speed = 800.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856880667]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856880667 groups=["Grabable"]]
 shape = SubResource("CircleShape2D_7usdx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=563074674]
 sprite_frames = ExtResource("1_sr4yt")
 animation = &"Idle"
 
-[node name="CursorGrabber" type="Area2D" parent="." unique_id=472335767]
+[node name="CursorGrabber" type="Area2D" parent="." unique_id=472335767 groups=["Grabable"]]
 collision_layer = 129
 collision_mask = 129
 

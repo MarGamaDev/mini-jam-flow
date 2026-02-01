@@ -12,6 +12,8 @@ sprite_frames = ExtResource("1_denxn")
 script = ExtResource("2_1nrms")
 
 [node name="CollisionShape2D" type="Area2D" parent="." unique_id=1695269974]
+collision_layer = 128
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D" unique_id=638558967]
 position = Vector2(0.5, -2)

@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cq7s6m8ofblrc" path="res://Entities/EntityCenter.tscn" id="3_vweq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ww0jn"]
-radius = 9.0
+radius = 7.0
 
 [node name="Player" type="CharacterBody2D" unique_id=299891182]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ww0jn")
 move_speed = 1000.0
@@ -17,7 +20,7 @@ orb_minimum_distance = 20.0
 shape = SubResource("CircleShape2D_ww0jn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953751037]
-position = Vector2(0, -1)
+position = Vector2(-1, -3)
 sprite_frames = ExtResource("1_e5kic")
 animation = &"Idle"
 
