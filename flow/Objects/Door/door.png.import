@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnrfviq2yhgn"
-path="res://.godot/imported/button.png-e4f59b138957837dba91c0f1f4b737cd.ctex"
+uid="uid://hkfx55adijco"
+path="res://.godot/imported/door.png-b315487786fdb14c7d304d72178e7357.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Lantern/button.png"
-dest_files=["res://.godot/imported/button.png-e4f59b138957837dba91c0f1f4b737cd.ctex"]
+source_file="res://Objects/Door/door.png"
+dest_files=["res://.godot/imported/door.png-b315487786fdb14c7d304d72178e7357.ctex"]
 
 [params]
 
