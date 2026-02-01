@@ -13,7 +13,7 @@ collision_layer = 3
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ww0jn")
-move_speed = 20.0
+move_speed = 25.0
 orb_minimum_distance = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=240328214]
