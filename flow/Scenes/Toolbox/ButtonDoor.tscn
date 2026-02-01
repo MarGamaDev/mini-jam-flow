@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dw36xhey31t8s"]
+
+[ext_resource type="Texture2D" uid="uid://b46xgdp3ci1br" path="res://Objects/Door/button_door.png" id="1_1quea"]
+[ext_resource type="Script" uid="uid://btwh6qn2n3ugk" path="res://Objects/Door/Door.gd" id="2_c4dcl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4dcl"]
+atlas = ExtResource("1_1quea")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rblvr"]
+atlas = ExtResource("1_1quea")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xcd5"]
+atlas = ExtResource("1_1quea")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq7st"]
+atlas = ExtResource("1_1quea")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8cyg"]
+atlas = ExtResource("1_1quea")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucgt7"]
+atlas = ExtResource("1_1quea")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3kxb"]
+atlas = ExtResource("1_1quea")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8hik"]
+atlas = ExtResource("1_1quea")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_net2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4dcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rblvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xcd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq7st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8cyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucgt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3kxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8hik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t73i5"]
+size = Vector2(16, 16)
+
+[node name="Button Door" type="AnimatedSprite2D" unique_id=223624740]
+sprite_frames = SubResource("SpriteFrames_net2x")
+script = ExtResource("2_c4dcl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1607529878]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1986846995]
+shape = SubResource("RectangleShape2D_t73i5")
