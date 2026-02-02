@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bxpl8e1lhdkjy"]
 
 [ext_resource type="Script" uid="uid://d200uex75der2" path="res://Main.gd" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://dtuis7d44lwuj" path="res://Ui/Cursor.tscn" id="2_uu6xs"]
 
 [node name="Main" type="Node2D" unique_id=1709022178]
 script = ExtResource("1_glv2v")
+
+[node name="Cursor" parent="." unique_id=1273649474 instance=ExtResource("2_uu6xs")]
+position = Vector2(-43, 89)

@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 	if !mouse_pressed:
 		dragging = false;
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !is_unlocked:
 		velocity = (rune_target - global_position) * follow_speed;
 		move_and_slide()

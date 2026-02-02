@@ -25,6 +25,7 @@ func _ready() -> void:
 			fire_direction = Vector2.UP
 
 func _process(delta: float) -> void:
+	print(str(frozen) + str(firing))
 	if frozen || firing:
 		return
 	
