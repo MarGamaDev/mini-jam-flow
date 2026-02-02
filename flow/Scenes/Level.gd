@@ -22,6 +22,7 @@ func _ready() -> void:
 	TIME_SHADER_MATERIAL.set_shader_parameter("time_area_radius", time_area_radius)
 	time_orb.set_radius(time_area_radius)
 	player.initialize(time_orb)
+	player.player_death.connect(_on_player_death)
 	
 	# configure soup
 	for cell_position in soup.get_used_cells():
@@ -34,6 +35,7 @@ func _ready() -> void:
 			tile.Initialize(index)
 			soup.erase_cell(cell_position)
 	
+	exit_transition.color.a = 1
 	while exit_transition.color.a > 0:
 		exit_transition.color.a -= last_delta / 0.5
 		await get_tree().process_frame

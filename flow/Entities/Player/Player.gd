@@ -3,9 +3,9 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @export var move_speed: float = 500;
-@export var orb_minimum_distance: float = 9;
 
 signal player_death
 
@@ -17,10 +17,12 @@ func initialize(orb: TimeOrb):
 	time_orb = orb
 
 func _process(_delta: float) -> void:
-	animated_sprite_2d.flip_h = velocity.dot(Vector2.RIGHT) < 0
+	if is_in_time:
+		var target_direction = global_position.direction_to(time_orb.global_position)
+		animated_sprite_2d.flip_h = target_direction.dot(Vector2.RIGHT) < -0.05
 
 func _physics_process(_delta: float) -> void:
-	if !is_in_time && !dead:
+	if !is_in_time || dead:
 		velocity = Vector2.ZERO
 		return
 	
@@ -46,6 +48,11 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 
 func light() -> void:
+	if dead:
+		return
+	
+	dead = true
+	collision_shape_2d.disabled = true
 	animated_sprite_2d.play("Death")
 	await animated_sprite_2d.animation_finished
 	player_death.emit()

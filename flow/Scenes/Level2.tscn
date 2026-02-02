@@ -7,20 +7,17 @@
 [ext_resource type="TileSet" uid="uid://cdiliupa5gs5s" path="res://Terrain/floor_tileset.tres" id="6_ycmr1"]
 [ext_resource type="TileSet" uid="uid://8r17r5adr3fk" path="res://Terrain/wall_tileset.tres" id="7_2jwna"]
 [ext_resource type="TileSet" uid="uid://crvx6jpody7f2" path="res://Terrain/soup_tileset.tres" id="8_sgc6j"]
-[ext_resource type="PackedScene" uid="uid://cusf1v47muv3b" path="res://Scenes/Toolbox/End_Rune.tscn" id="9_xx40l"]
+[ext_resource type="PackedScene" uid="uid://cusf1v47muv3b" path="res://Scenes/Toolbox/EndRune.tscn" id="9_xx40l"]
+[ext_resource type="PackedScene" uid="uid://eadlby0q8p2p" path="res://Scenes/Toolbox/Button.tscn" id="10_1je60"]
 [ext_resource type="PackedScene" uid="uid://neash8ta0qdl" path="res://Scenes/Toolbox/Lantern.tscn" id="10_62f1r"]
 [ext_resource type="PackedScene" uid="uid://clvuf8c4pp608" path="res://Scenes/Toolbox/GlorpisDown.tscn" id="11_1je60"]
-[ext_resource type="PackedScene" uid="uid://jfqvojvk330v" path="res://Scenes/Toolbox/GlorpisLeft.tscn" id="12_2jwna"]
+[ext_resource type="PackedScene" uid="uid://dw36xhey31t8s" path="res://Scenes/Toolbox/ButtonDoor.tscn" id="11_ycmr1"]
 [ext_resource type="PackedScene" uid="uid://c7dtjge7rxykr" path="res://Scenes/Toolbox/FireDoor.tscn" id="12_ycmr1"]
-[ext_resource type="PackedScene" uid="uid://cm30vqd2sx4bm" path="res://Scenes/Toolbox/GlorpisRight.tscn" id="13_sgc6j"]
 [ext_resource type="PackedScene" uid="uid://57o7firdbtnl" path="res://Scenes/Toolbox/GlorpisUp.tscn" id="14_xx40l"]
 
 [node name="Level 2" type="Node2D" unique_id=637504320 groups=["Level"]]
 y_sort_enabled = true
 script = ExtResource("1_70df5")
-
-[node name="Time Orb" parent="." unique_id=1427376544 instance=ExtResource("3_au75x")]
-position = Vector2(16, 176)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1856897000]
 
@@ -44,10 +41,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-color = Color(0.94509804, 0.050980393, 0.16470589, 0.23921569)
 
 [node name="ExitTransition" type="ColorRect" parent="CanvasLayer/Control" unique_id=1018786356]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,21 +50,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-color = Color(0, 0.8, 0.8, 1)
+color = Color(0, 0.8, 0.8, 0)
+
+[node name="Time Orb" parent="." unique_id=1427376544 instance=ExtResource("3_au75x")]
+position = Vector2(216, 136)
 
 [node name="Player" parent="." unique_id=299891182 instance=ExtResource("5_1je60")]
-position = Vector2(32, 32)
+position = Vector2(40, 40)
 
 [node name="Soup Bowl" type="Node2D" parent="." unique_id=1027116531]
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=1139811204]
 z_index = -100
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAAEAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAABAAIAAAABAAEAAAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAACAAMAAAABAAEAAAABAAMAAAABAAEAAAAAAAMAAAAAAAEAAAACAAQAAAABAAIAAAABAAQAAAABAAIAAAAAAAQAAAAAAAIAAAADAAMAAAABAAEAAAADAAQAAAABAAIAAAADAAIAAAABAAEAAAAEAAMAAAADAAAAAAAEAAQAAAAGAAIAAAAEAAIAAAABAAEAAAADAAEAAAABAAEAAAAEAAEAAAACAAMAAAADAAAAAAABAAAAAAAEAAAAAAACAAAAAAAFAAIAAAABAAEAAAAFAAMAAAAEAAIAAAAFAAEAAAABAAAAAAAGAAIAAAABAAEAAAAGAAMAAAAEAAAAAAAGAAEAAAABAAAAAAAHAAIAAAABAAEAAAAHAAMAAAAEAAIAAAAHAAEAAAABAAAAAAAIAAIAAAAKAAIAAAAIAAMAAAAEAAAAAAAIAAEAAAABAAAAAAAJAAIAAAABAAEAAAAJAAMAAAAEAAAAAAAJAAEAAAABAAAAAAAKAAIAAAABAAEAAAAKAAMAAAAEAAIAAAAKAAEAAAABAAAAAAALAAIAAAABAAEAAAALAAMAAAAEAAAAAAALAAEAAAABAAAAAAAMAAIAAAABAAEAAAAMAAMAAAAAAAQAAAAMAAEAAAABAAAAAAANAAIAAAABAAEAAAANAAMAAAAKAAEAAAANAAEAAAABAAAAAAAOAAEAAAACAAAAAAANAAUAAAAEAAAAAAANAAQAAAABAAEAAAAMAAUAAAAEAAIAAAAMAAQAAAABAAEAAAALAAUAAAAEAAAAAAALAAQAAAAKAAAAAAAKAAUAAAAEAAIAAAAKAAQAAAABAAEAAAAJAAUAAAAEAAIAAAAJAAQAAAABAAEAAAAIAAUAAAAEAAAAAAAIAAQAAAAKAAIAAAAHAAUAAAAEAAIAAAAHAAQAAAABAAEAAAAGAAUAAAACAAQAAAAGAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAQAAAAKAAAAAAAEAAUAAAAGAAAAAAAGAAYAAAABAAEAAAAFAAYAAAABAAEAAAAEAAYAAAAFAAEAAAAGAAcAAAAEAAAAAAAFAAcAAAAEAAIAAAAEAAcAAAADAAIAAAAHAAYAAAAKAAEAAAAHAAcAAAAEAAIAAAAIAAYAAAABAAEAAAAIAAcAAAAEAAAAAAAJAAYAAAABAAEAAAAJAAcAAAAEAAAAAAAKAAYAAAABAAEAAAAKAAcAAAAEAAIAAAALAAYAAAAKAAAAAAALAAcAAAAEAAAAAAAMAAYAAAAKAAEAAAAMAAcAAAAAAAQAAAANAAYAAAABAAEAAAANAAcAAAABAAEAAAANAAkAAAABAAIAAAANAAgAAAABAAEAAAAMAAkAAAABAAIAAAAMAAgAAAABAAEAAAALAAkAAAABAAIAAAALAAgAAAABAAEAAAAKAAkAAAABAAIAAAAKAAgAAAABAAEAAAAJAAkAAAABAAIAAAAJAAgAAAABAAEAAAAIAAkAAAABAAIAAAAIAAgAAAABAAEAAAAHAAkAAAABAAIAAAAHAAgAAAABAAEAAAAGAAkAAAABAAIAAAAGAAgAAAABAAEAAAAFAAkAAAABAAIAAAAFAAgAAAABAAEAAAAEAAkAAAABAAIAAAAEAAgAAAABAAEAAAADAAkAAAABAAIAAAADAAgAAAABAAEAAAADAAcAAAAKAAAAAAACAAkAAAABAAIAAAACAAgAAAABAAEAAAACAAcAAAABAAEAAAABAAkAAAABAAIAAAABAAgAAAAKAAAAAAABAAcAAAABAAEAAAAAAAkAAAAAAAIAAAAAAAgAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAYAAAAAAAEAAAABAAYAAAABAAEAAAACAAYAAAABAAEAAAAAAAUAAAAAAAAAAAABAAUAAAABAAAAAAACAAUAAAABAAAAAAADAAYAAAABAAEAAAADAAUAAAABAAAAAAAQAAMAAAABAAEAAAAQAAQAAAABAAEAAAAQAAYAAAABAAEAAAAQAAUAAAABAAEAAAARAAQAAAABAAEAAAASAAQAAAAKAAAAAAASAAUAAAAKAAAAAAARAAUAAAABAAEAAAARAAMAAAABAAEAAAATAAQAAAACAAEAAAATAAUAAAACAAEAAAARAAYAAAABAAEAAAAOAAIAAAACAAEAAAAOAAMAAAAIAAIAAAAOAAQAAAAFAAEAAAAOAAUAAAAGAAEAAAAOAAYAAAAIAAAAAAAOAAcAAAACAAEAAAAOAAgAAAACAAEAAAAOAAkAAAACAAIAAAARAAIAAAABAAAAAAASAAIAAAACAAAAAAAQAAIAAAABAAAAAAAPAAQAAAABAAEAAAAPAAIAAAAAAAAAAAAPAAUAAAABAAEAAAARAAcAAAABAAIAAAAQAAcAAAABAAIAAAAPAAcAAAAAAAIAAAAPAAMAAAAAAAMAAAAPAAYAAAAAAAUAAAASAAYAAAACAAUAAAASAAcAAAACAAIAAAATAAYAAAACAAIAAAASAAMAAAACAAMAAAATAAMAAAACAAAAAAA=")
 tile_set = ExtResource("6_ycmr1")
 y_sort_origin = 6
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=2113876792]
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AAADAAUAAAAKAAUAAAACAAUAAAAKAAQAAAABAAUAAAAKAAQAAAAAAAUAAAAHAAMAAAAAAAYAAAAGAAQAAAAAAAcAAAAGAAQAAAAAAAgAAAAHAAUAAAABAAgAAAAKAAUAAAA=")
 tile_set = ExtResource("7_2jwna")
 
 [node name="Soup" type="TileMapLayer" parent="." unique_id=1190804764]
@@ -78,41 +78,77 @@ tile_map_data = PackedByteArray("AAATAAkAAAAAAAAAAAATAAgAAAAAAAMAAAATAAcAAAAAAAI
 tile_set = ExtResource("8_sgc6j")
 
 [node name="End Rune" parent="." unique_id=1802931911 instance=ExtResource("9_xx40l")]
-position = Vector2(304, 80)
+position = Vector2(272, 80)
 
-[node name="Lantern" parent="." unique_id=1539710806 instance=ExtResource("10_62f1r")]
-position = Vector2(256, 120)
+[node name="Obstacles" type="Node2D" parent="." unique_id=1504977227]
 
-[node name="Glorpis Down" parent="." unique_id=1613707089 instance=ExtResource("11_1je60")]
-position = Vector2(256, 32)
+[node name="Glorpis Down" parent="Obstacles" unique_id=1613707089 instance=ExtResource("11_1je60")]
+position = Vector2(120, 8)
 
-[node name="Fire Door" parent="." unique_id=223624740 instance=ExtResource("12_ycmr1")]
-position = Vector2(224, 72)
+[node name="Button" parent="Obstacles" unique_id=1054717585 instance=ExtResource("10_1je60")]
+position = Vector2(40, 120)
 
-[node name="Glorpis Right" parent="." unique_id=1753634283 instance=ExtResource("12_2jwna")]
-position = Vector2(152, 120)
+[node name="Button Door" parent="Obstacles" unique_id=223624740 instance=ExtResource("11_ycmr1")]
+position = Vector2(88, 120)
 
-[node name="Glorpis Right2" parent="." unique_id=2037084875 instance=ExtResource("13_sgc6j")]
-position = Vector2(184, 120)
+[node name="Glorpis Down2" parent="Obstacles" unique_id=1594714573 instance=ExtResource("11_1je60")]
+position = Vector2(152, 8)
 
-[node name="Glorpis Down2" parent="." unique_id=749557227 instance=ExtResource("14_xx40l")]
-position = Vector2(168, 72)
+[node name="Glorpis Down3" parent="Obstacles" unique_id=728771265 instance=ExtResource("11_1je60")]
+position = Vector2(184, 8)
 
-[node name="Lantern2" parent="." unique_id=438512553 instance=ExtResource("10_62f1r")]
-position = Vector2(168, 40)
+[node name="Glorpis Down4" parent="Obstacles" unique_id=1379111371 instance=ExtResource("11_1je60")]
+position = Vector2(216, 8)
 
-[node name="Fire Door2" parent="." unique_id=716311470 instance=ExtResource("12_ycmr1")]
-position = Vector2(144, 40)
+[node name="Glorpis Down6" parent="Obstacles" unique_id=1733795267 instance=ExtResource("11_1je60")]
+position = Vector2(88, 8)
 
-[node name="Lantern3" parent="." unique_id=1569011416 instance=ExtResource("10_62f1r")]
-position = Vector2(112, 120)
+[node name="Lantern" parent="Obstacles" unique_id=438512553 instance=ExtResource("10_62f1r")]
+position = Vector2(88, 152)
 
-[node name="Fire Door3" parent="." unique_id=1936229703 instance=ExtResource("12_ycmr1")]
-position = Vector2(88, 112)
+[node name="Fire Door" parent="Obstacles" unique_id=276883536 instance=ExtResource("12_ycmr1")]
+position = Vector2(248, 72)
+
+[node name="Fire Door2" parent="Obstacles" unique_id=795161649 instance=ExtResource("12_ycmr1")]
+position = Vector2(248, 88)
+
+[node name="Fire Door3" parent="Obstacles" unique_id=1373497938 instance=ExtResource("12_ycmr1")]
+position = Vector2(264, 56)
+
+[node name="Fire Door4" parent="Obstacles" unique_id=785894738 instance=ExtResource("12_ycmr1")]
+position = Vector2(280, 56)
+
+[node name="Fire Door5" parent="Obstacles" unique_id=1565405602 instance=ExtResource("12_ycmr1")]
+position = Vector2(296, 72)
+
+[node name="Fire Door6" parent="Obstacles" unique_id=5543033 instance=ExtResource("12_ycmr1")]
+position = Vector2(296, 88)
+
+[node name="Fire Door7" parent="Obstacles" unique_id=1034135598 instance=ExtResource("12_ycmr1")]
+position = Vector2(280, 104)
+
+[node name="Fire Door8" parent="Obstacles" unique_id=1556034748 instance=ExtResource("12_ycmr1")]
+position = Vector2(264, 104)
+
+[node name="Lantern2" parent="Obstacles" unique_id=1125401479 instance=ExtResource("10_62f1r")]
+position = Vector2(136, 8)
+
+[node name="Glorpis Down5" parent="Obstacles" unique_id=1225137281 instance=ExtResource("14_xx40l")]
+position = Vector2(136, 152)
+
+[node name="Fire Door9" parent="Obstacles" unique_id=1436438384 instance=ExtResource("12_ycmr1")]
+position = Vector2(200, 72)
 
 [connection signal="entity_entered" from="Time Orb" to="." method="_on_time_orb_entity_entered"]
 [connection signal="entity_exited" from="Time Orb" to="." method="_on_time_orb_entity_exited"]
 [connection signal="OnOrbPresent" from="End Rune" to="." method="_on_end_rune_orb_present"]
-[connection signal="lantern_lit" from="Lantern" to="Fire Door" method="open_door"]
-[connection signal="lantern_lit" from="Lantern2" to="Fire Door2" method="open_door"]
-[connection signal="lantern_lit" from="Lantern3" to="Fire Door3" method="open_door"]
+[connection signal="stepped_on_button" from="Obstacles/Button" to="Obstacles/Button Door" method="_on_button_stepped_on_button"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door2" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door3" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door4" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door5" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door6" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door7" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern" to="Obstacles/Fire Door8" method="_on_lantern_lantern_lit"]
+[connection signal="lantern_lit" from="Obstacles/Lantern2" to="Obstacles/Fire Door9" method="_on_lantern_lantern_lit"]

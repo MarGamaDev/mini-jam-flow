@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg0bbg2xc4xh7"
-path="res://.godot/imported/platform.png-dab368e9818a7893139e90ac4b8f4334.ctex"
+uid="uid://cor61y4r67g86"
+path="res://.godot/imported/WizboFace.png-f8d2491082b340779451ef737136f8b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Terrain/platform.png"
-dest_files=["res://.godot/imported/platform.png-dab368e9818a7893139e90ac4b8f4334.ctex"]
+source_file="res://WizboFace.png"
+dest_files=["res://.godot/imported/WizboFace.png-f8d2491082b340779451ef737136f8b6.ctex"]
 
 [params]
 

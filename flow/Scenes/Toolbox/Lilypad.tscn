@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://l3014sdo5b5v"]
+
+[ext_resource type="Texture2D" uid="uid://dg0bbg2xc4xh7" path="res://Objects/Lilypad/Lilypad.png" id="1_d87ak"]
+[ext_resource type="Script" uid="uid://dntalb3i8ljhb" path="res://Objects/Lilypad/Lilypad.gd" id="2_5vvvb"]
+[ext_resource type="PackedScene" uid="uid://cq7s6m8ofblrc" path="res://Entities/EntityCenter.tscn" id="3_yx4ps"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hrr45"]
+vertices = PackedVector2Array(6, 6, -6, 6, -6, -6, 6, -6)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6, -6, 6, 6, -6, 6, -6, -6)])
+parsed_geometry_type = 0
+agent_radius = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrr45"]
+radius = 1.0
+
+[node name="Lilypad" type="Path2D" unique_id=1972309433]
+z_index = -2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=71542554]
+z_index = -2
+rotates = false
+loop = false
+
+[node name="Lilypad" type="Sprite2D" parent="PathFollow2D" unique_id=1181312551 node_paths=PackedStringArray("nav_links")]
+z_index = -2
+texture = ExtResource("1_d87ak")
+script = ExtResource("2_5vvvb")
+nav_links = [NodePath("NavigationRegion2D/NavigationLink2D"), NodePath("NavigationRegion2D/NavigationLink2D2"), NodePath("NavigationRegion2D/NavigationLink2D3"), NodePath("NavigationRegion2D/NavigationLink2D4")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="PathFollow2D/Lilypad" unique_id=1467917292]
+navigation_polygon = SubResource("NavigationPolygon_hrr45")
+use_edge_connections = false
+navigation_layers = 16
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=1970251566]
+navigation_layers = 16
+start_position = Vector2(-16, 0)
+
+[node name="NavigationLink2D2" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=1948564967]
+navigation_layers = 16
+start_position = Vector2(0, -16)
+
+[node name="NavigationLink2D3" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=1159793813]
+navigation_layers = 16
+start_position = Vector2(16, 0)
+
+[node name="NavigationLink2D4" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=825491444]
+navigation_layers = 16
+start_position = Vector2(0, 16)
+
+[node name="Player Trigger" type="Area2D" parent="PathFollow2D/Lilypad" unique_id=1106425570]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Lilypad/Player Trigger" unique_id=4615214]
+shape = SubResource("CircleShape2D_hrr45")
+
+[node name="Entity Center" parent="PathFollow2D/Lilypad" unique_id=697129407 instance=ExtResource("3_yx4ps")]
+
+[connection signal="body_entered" from="PathFollow2D/Lilypad/Player Trigger" to="PathFollow2D/Lilypad" method="_on_player_trigger_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Lilypad/Player Trigger" to="PathFollow2D/Lilypad" method="_on_player_trigger_body_exited"]
+[connection signal="on_update_timezone" from="PathFollow2D/Lilypad/Entity Center" to="PathFollow2D/Lilypad" method="_on_entity_center_on_update_timezone"]

@@ -5,7 +5,7 @@
 [ext_resource type="Shape2D" uid="uid://jwj61sfwd8fr" path="res://Entities/Clock/timezone_radius.tres" id="3_k1rvi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7usdx"]
-radius = 8.0
+radius = 7.0
 
 [node name="Time Orb" type="CharacterBody2D" unique_id=1139669249 groups=["Grabable", "Orb"]]
 collision_layer = 4226

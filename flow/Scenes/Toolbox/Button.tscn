@@ -29,6 +29,7 @@ animations = [{
 radius = 7.0
 
 [node name="Button" type="AnimatedSprite2D" unique_id=1054717585]
+z_index = -2
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_up1l1")
 script = ExtResource("2_8e0r1")

@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Flow"
+config/name="Wizbo"
 run/main_scene="uid://bxpl8e1lhdkjy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://cor61y4r67g86"
 
 [display]
 
@@ -31,6 +31,18 @@ Orb=""
 Player=""
 Level=""
 Flammable=""
+
+[layer_names]
+
+2d_navigation/layer_5="Player Nav"
+2d_navigation/layer_7="Nav Walls"
+avoidance/layer_5="Player Navmes"
+avoidance/layer_6="Layer 6"
+
+[navigation]
+
+2d/default_edge_connection_margin=2.0
+2d/default_link_connection_radius=0.575
 
 [physics]
 
