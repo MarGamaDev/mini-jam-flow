@@ -1,22 +1,31 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+
 uniform vec2 time_area_coords;
 uniform float time_area_radius;
-varying vec2 global_coords;
+uniform float color_percent;
 
+group_uniforms edge_settings.base_edge;
 uniform float base_edge_rotate_speed = 10.0;
 uniform float base_edge_frequency = 50.0;
 uniform float base_edge_wave_intensity = 0.5;
+group_uniforms;
 
+group_uniforms edge_settings.outer_edge;
 uniform float outer_edge_rotate_speed = 10.0;
 uniform float outer_edge_frequency = 50.0;
 uniform float outer_edge_wave_intensity = 0.5;
+group_uniforms;
 
+group_uniforms edge_settings.inner_edge;
 uniform float inner_edge_rotate_speed = 10.0;
 uniform float inner_edge_frequency = 50.0;
 uniform float inner_edge_wave_intensity = 0.5;
 uniform float inner_edge_min_width = 1.0;
+group_uniforms;
+
+varying vec2 global_coords;
 
 void vertex() {
 	global_coords = (MODEL_MATRIX * vec4(VERTEX, 1.0, 1.0)).xy;
@@ -42,6 +51,6 @@ void fragment() {
 	} else if (distance_to_point < adjusted_radius) {
 		COLOR = original_color;
 	} else {
-		COLOR = grayscale;
+		COLOR = grayscale + ((original_color - grayscale) * color_percent);
 	}
 }

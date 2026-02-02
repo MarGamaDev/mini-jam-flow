@@ -18,6 +18,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
 	_update_state()
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		Input.mouse_mode =Input.MOUSE_MODE_CONFINED_HIDDEN
+	else:
+		Input.mouse_mode =Input.MOUSE_MODE_HIDDEN
 
 func _update_state() -> void:
 	if !grabables.is_empty():
