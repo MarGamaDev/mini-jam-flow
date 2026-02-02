@@ -13,6 +13,7 @@ func _load_next_level() -> void:
 		current_level.queue_free()
 	
 	if level_index > level_count:
+		get_tree().quit()
 		return
 	
 	var level_path: String = "res://Scenes/Level" + str(level_index) + ".tscn"

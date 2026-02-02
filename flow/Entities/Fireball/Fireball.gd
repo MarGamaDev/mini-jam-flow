@@ -12,6 +12,7 @@ var exploding = false
 func shoot(direction: Vector2, parent_body: Node2D) -> void:
 	add_collision_exception_with(parent_body)
 	move_direction = direction
+	global_position = parent_body.global_position + (direction * 8)
 	
 	match direction:
 		Vector2.LEFT:
@@ -35,10 +36,12 @@ func _physics_process(delta: float) -> void:
 	
 	var collision = move_and_collide(move_direction * speed * delta)
 	if collision:
-		exploding = true
 		var object = collision.get_collider() as Node2D
 		if object.is_in_group("Flammable"):
 			object.light()
+		
+		exploding = true
+		explode()
 
 func explode() -> void:
 	collision_shape_2d.disabled = true

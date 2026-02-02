@@ -25,7 +25,6 @@ func _ready() -> void:
 			fire_direction = Vector2.UP
 
 func _process(delta: float) -> void:
-	print(str(frozen) + str(firing))
 	if frozen || firing:
 		return
 	
@@ -44,6 +43,7 @@ func shoot_fireball() -> void:
 	get_tree().get_first_node_in_group("Level").add_child(fireball)
 	(fireball as Fireball).shoot(fire_direction, self)
 	
+	firing = false
 	animated_sprite_2d.play("idle")
 
 

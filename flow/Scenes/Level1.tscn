@@ -23,7 +23,6 @@ position = Vector2(-91, 15)
 position = Vector2(44, 138)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1856897000]
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1273608745]
 layout_mode = 3

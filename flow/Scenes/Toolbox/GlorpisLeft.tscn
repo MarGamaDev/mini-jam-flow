@@ -41,7 +41,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"fire",
-"speed": 3.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -71,4 +71,4 @@ animation = &"idle"
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_xgqlb")
 
-[connection signal="on_update_timezone" from="Entity Center" to="AnimatedSprite2d" method="_on_entity_center_on_update_timezone"]
+[connection signal="on_update_timezone" from="Entity Center" to="." method="_on_entity_center_on_update_timezone"]
