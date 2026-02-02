@@ -29,6 +29,8 @@ Entity=""
 Grabable=""
 Orb=""
 Player=""
+Level=""
+Flammable=""
 
 [physics]
 

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://57o7firdbtnl"]
+
+[ext_resource type="Script" uid="uid://dmwyufk64o3st" path="res://Entities/Glorpis/Glorpis.gd" id="1_qeo14"]
+[ext_resource type="Texture2D" uid="uid://3cxslq501gx6" path="res://Entities/Glorpis/glorpis.png" id="2_l1nfe"]
+[ext_resource type="PackedScene" uid="uid://cq7s6m8ofblrc" path="res://Entities/EntityCenter.tscn" id="3_dtese"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeo14"]
+atlas = ExtResource("2_l1nfe")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1nfe"]
+atlas = ExtResource("2_l1nfe")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtese"]
+atlas = ExtResource("2_l1nfe")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d53g"]
+atlas = ExtResource("2_l1nfe")
+region = Rect2(272, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pv7v"]
+atlas = ExtResource("2_l1nfe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_05nx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeo14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1nfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtese")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d53g")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pv7v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgqlb"]
+size = Vector2(12, 8)
+
+[node name="Glorpis Down" type="StaticBody2D" unique_id=1613707089]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_qeo14")
+glorp_direction = 3
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="." unique_id=231742584]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_05nx3")
+animation = &"idle"
+
+[node name="Entity Center" parent="." unique_id=697129407 groups=["Level"] instance=ExtResource("3_dtese")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1964975541]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_xgqlb")
+
+[connection signal="on_update_timezone" from="Entity Center" to="AnimatedSprite2d" method="_on_entity_center_on_update_timezone"]

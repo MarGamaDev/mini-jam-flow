@@ -2,7 +2,7 @@ class_name GameManager
 extends Node2D
 
 @export var level_count: int = 2
-var level_index: int = 0
+var level_index: int = 1
 var current_level
 
 func _ready() -> void:
@@ -12,8 +12,6 @@ func _load_next_level() -> void:
 	if current_level:
 		current_level.queue_free()
 	
-	level_index += 1
-	
 	if level_index > level_count:
 		return
 	
@@ -21,4 +19,10 @@ func _load_next_level() -> void:
 	var level_scene = load(level_path) as PackedScene
 	current_level = level_scene.instantiate()
 	add_child(current_level)
-	(current_level as Level).game_end.connect(_load_next_level)
+	(current_level as Level).level_end.connect(on_level_end)
+
+func on_level_end(has_won: bool) -> void:
+	if has_won:
+		level_index += 1
+	
+	_load_next_level()

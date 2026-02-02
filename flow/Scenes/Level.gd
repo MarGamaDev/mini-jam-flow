@@ -16,7 +16,7 @@ const SOUP_TILE = preload("uid://b72oeph4tcfxj")
 
 var last_delta: float = 0
 
-signal game_end
+signal level_end(has_won: bool)
 
 func _ready() -> void:
 	TIME_SHADER_MATERIAL.set_shader_parameter("time_area_radius", time_area_radius)
@@ -24,15 +24,15 @@ func _ready() -> void:
 	player.initialize(time_orb)
 	
 	# configure soup
-	for position in soup.get_used_cells():
-		var data = soup.get_cell_tile_data(position)
+	for cell_position in soup.get_used_cells():
+		var data = soup.get_cell_tile_data(cell_position)
 		var index: int = data.get_custom_data("soup_index")
 		if index != 5:
 			var tile: SoupTile = SOUP_TILE.instantiate();
 			soup_bowl.add_child(tile)
-			tile.global_position = Vector2(position.x * 16 + 8, position.y * 16 + 8)
+			tile.global_position = Vector2(cell_position.x * 16 + 8, cell_position.y * 16 + 8)
 			tile.Initialize(index)
-			soup.erase_cell(position)
+			soup.erase_cell(cell_position)
 	
 	while exit_transition.color.a > 0:
 		exit_transition.color.a -= last_delta / 0.5
@@ -49,8 +49,8 @@ func _on_time_orb_entity_exited(area: Area2D) -> void:
 	area.update_timezone(false);
 
 func _on_end_rune_orb_present() -> void:
-	var original_radius: float = time_area_radius
 	
+	#smallify radius
 	while time_area_radius > 0.1:
 		time_area_radius *= 0.8
 		time_orb.set_radius(time_area_radius)
@@ -59,14 +59,25 @@ func _on_end_rune_orb_present() -> void:
 	
 	time_area_radius = 0.1
 	
+	#biggify radius
 	while time_area_radius < 500.0:
 		time_area_radius *= 1.2
 		time_orb.set_radius(time_area_radius)
 		TIME_SHADER_MATERIAL.set_shader_parameter("time_area_radius", time_area_radius)
 		await get_tree().process_frame
 	
+	#transition out
 	while exit_transition.color.a < 1.0:
 		exit_transition.color.a += last_delta / 0.5
 		await get_tree().process_frame
 	
-	game_end.emit()
+	level_end.emit(true)
+
+func _on_player_death() -> void:
+	
+	#transition out
+	while exit_transition.color.a < 1.0:
+		exit_transition.color.a += last_delta / 0.5
+		await get_tree().process_frame
+	
+	level_end.emit(false)

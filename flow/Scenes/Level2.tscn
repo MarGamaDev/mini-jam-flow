@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://crvx6jpody7f2" path="res://Terrain/soup_tileset.tres" id="8_sgc6j"]
 [ext_resource type="PackedScene" uid="uid://cusf1v47muv3b" path="res://Scenes/Toolbox/End_Rune.tscn" id="9_xx40l"]
 
-[node name="Level 1" type="Node2D" unique_id=637504320]
+[node name="Level 2" type="Node2D" unique_id=637504320 groups=["Level"]]
 y_sort_enabled = true
 script = ExtResource("1_70df5")
 

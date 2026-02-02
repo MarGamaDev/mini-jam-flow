@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://neash8ta0qdl"]
+
+[ext_resource type="Texture2D" uid="uid://pochxfntkolk" path="res://Objects/Lantern/lantern.png" id="1_xwb5p"]
+[ext_resource type="Script" uid="uid://mdgd4y0brspr" path="res://Objects/Lantern/Lantern.gd" id="2_x1gca"]
+[ext_resource type="PackedScene" uid="uid://cq7s6m8ofblrc" path="res://Entities/EntityCenter.tscn" id="3_x1gca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpvyy"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7afbd"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alysr"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmlh7"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o4cw"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7juh1"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn244"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uicxo"]
+atlas = ExtResource("1_xwb5p")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l3q6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpvyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7afbd")
+}],
+"loop": true,
+"name": &"On",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alysr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmlh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o4cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7juh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn244")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uicxo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwb5p"]
+size = Vector2(14, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwb5p"]
+radius = 4.1231055
+
+[node name="Lantern" type="AnimatedSprite2D" unique_id=1539710806 groups=["Flammable", "Lantern"]]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_6l3q6")
+script = ExtResource("2_x1gca")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=438512553 groups=["Flammable", "Lantern"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=333100939 groups=["Lantern"]]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_xwb5p")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=537557909 groups=["Flammable", "Lantern"]]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1368960663 groups=["Lantern"]]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_xwb5p")
+
+[node name="Entity Center" parent="." unique_id=697129407 instance=ExtResource("3_x1gca")]
+
+[connection signal="on_update_timezone" from="Entity Center" to="." method="_on_entity_center_on_update_timezone"]

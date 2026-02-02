@@ -1,10 +1,15 @@
-class_name Door
+class_name Lantern
 extends AnimatedSprite2D
 
-func open_door() -> void:
+signal lantern_lit
+
+func light() -> void:
 	play("default")
 	await animation_finished
-	queue_free()
+	lantern_lit.emit()
+	play("On")
+
+
 
 func _on_entity_center_on_update_timezone(enabled: bool) -> void:
 	if enabled:
