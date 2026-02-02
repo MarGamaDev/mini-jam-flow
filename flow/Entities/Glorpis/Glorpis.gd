@@ -8,7 +8,7 @@ enum GlorpDirection {LEFT, RIGHT, DOWN, UP}
 @export var glorp_direction: GlorpDirection
 
 var fire_direction: Vector2
-var time_between_shots: float = 3
+var time_between_shots: float = 2
 var timer: float = 0
 var frozen:= true
 var firing:= false

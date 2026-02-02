@@ -26,15 +26,11 @@ func _physics_process(delta: float) -> void:
 		path_follow_2d.progress_ratio = 1
 		direction = -1
 		traveling = false
-		for link in nav_links:
-			link.enabled = true
 	
 	if path_follow_2d.progress_ratio <= 0:
 		path_follow_2d.progress_ratio = 0
-		direction = -1
+		direction = 1
 		traveling = false
-		for link in nav_links:
-			link.enabled = true
 
 func _on_entity_center_on_update_timezone(enabled: bool) -> void:
 	frozen = !enabled

@@ -32,7 +32,7 @@ shape = SubResource("CircleShape2D_7usdx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Timezone" unique_id=136059329]
 shape = ExtResource("3_k1rvi")
-debug_color = Color(0.8171344, 0.0019104058, 0.9735572, 0.41960785)
+debug_color = Color(0.8156863, 0, 0.972549, 0.21176471)
 
 [connection signal="mouse_entered" from="CursorGrabber" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CursorGrabber" to="." method="_on_mouse_exited"]

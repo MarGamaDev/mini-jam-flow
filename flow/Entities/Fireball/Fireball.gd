@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-var speed: float = 20
+var speed: float = 30
 var move_direction: Vector2
 var frozen = true
 var exploding = false

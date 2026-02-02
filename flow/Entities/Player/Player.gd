@@ -34,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 		navigation_agent_2d.velocity = target_velocity
 	else:
 		_on_navigation_agent_2d_velocity_computed(target_velocity)
+	
 	move_and_slide()
 
 func update_timezone(enabled: bool) -> void:

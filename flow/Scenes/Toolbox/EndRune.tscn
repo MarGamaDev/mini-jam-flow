@@ -10,6 +10,7 @@ radius = 9.055386
 script = ExtResource("1_jxc2h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=781597841]
+z_index = -1
 texture = ExtResource("1_w33ua")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1341655538]

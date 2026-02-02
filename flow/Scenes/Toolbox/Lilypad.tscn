@@ -49,6 +49,22 @@ start_position = Vector2(16, 0)
 navigation_layers = 16
 start_position = Vector2(0, 16)
 
+[node name="NavigationLink2D5" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=470485202]
+navigation_layers = 16
+start_position = Vector2(8, 8)
+
+[node name="NavigationLink2D6" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=836235841]
+navigation_layers = 16
+start_position = Vector2(8, -8)
+
+[node name="NavigationLink2D7" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=1795911871]
+navigation_layers = 16
+start_position = Vector2(-8, -8)
+
+[node name="NavigationLink2D8" type="NavigationLink2D" parent="PathFollow2D/Lilypad/NavigationRegion2D" unique_id=938371046]
+navigation_layers = 16
+start_position = Vector2(-8, 8)
+
 [node name="Player Trigger" type="Area2D" parent="PathFollow2D/Lilypad" unique_id=1106425570]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Lilypad/Player Trigger" unique_id=4615214]
